@@ -24,32 +24,42 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red[600],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Row(
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Text("hello"),
-              Text("World")
-            ],
+
+          Expanded(
+            flex: 1,
+              child: Image.network("https://i.ytimg.com/vi/c063ddhWafo/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCjDzuM8m7hEdZu8NJyTLZQMztvkA")
           ),
-          Container(
-            padding: EdgeInsets.all(20),
-            color: Colors.cyan[500],
-            child: Text("One"),
+
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: const EdgeInsets.all(30.0),
+              color: Colors.cyan[400],
+              child: Text("1"),
+            ),
           ),
-          Container(
-            padding: EdgeInsets.all(40),
-            color: Colors.pink[500],
-            child: Text("Two"),
+
+          Expanded(
+            flex: 2,
+            child: Container(
+              padding: const EdgeInsets.all(30.0),
+              color: Colors.pink[400],
+              child: Text("2"),
+            ),
           ),
-          Container(
-            padding: EdgeInsets.all(60),
-            color: Colors.amber[500],
-            child: Text("Three"),
-          )
+
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: const EdgeInsets.all(30.0),
+              color: Colors.amber[400],
+              child: Text("3"),
+            ),
+          ),
         ],
+
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
