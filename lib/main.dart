@@ -1,133 +1,41 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-  home: Home()
+  home: QuoteList()
 ));
 
 
-class Home extends StatefulWidget {
-
-  const Home({Key? key}) : super(key: key);
+class QuoteList extends StatefulWidget {
+  const QuoteList({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<QuoteList> createState() => _QuoteListState();
 }
 
-class _HomeState extends State<Home> {
+class _QuoteListState extends State<QuoteList> {
 
-  int level = 0;
+  List<String> quotes = [
+    "hi",
+    "hello",
+    "nice"
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text(
-          "mkhader Profile",
-          style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold
-
-          ),
-        ),
+        title: Text("Awesome Quotes!"),
         centerTitle: true,
-        backgroundColor: Colors.grey[850],
-        elevation: 0.0,
+        backgroundColor: Colors.redAccent,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          setState(() {
-            level += 1;
-          });
-        },
-        child: Icon(
-          Icons.add
-        ),
-        backgroundColor: Colors.grey[800],
-      ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(30, 40, 30, 40),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children:  <Widget>[
-            Center(
-              child: CircleAvatar(
-                backgroundImage: NetworkImage("https://avatars.githubusercontent.com/u/58187169?v=4"),
-                radius: 40.0,
-              ),
-            ),
-            Divider(
-              height: 60.0,
-              color: Colors.grey[800],
-            ),
-            Text(
-                "Name",
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2.0
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              "Moayad Khader",
-              style: TextStyle(
-                  color: Colors.amberAccent[200],
-                  letterSpacing: 2.0,
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.bold
-              ),
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            Text(
-              "CURRENT LEVEL",
-              style: TextStyle(
-                  color: Colors.grey,
-                  letterSpacing: 2.0
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              '$level',
-              style: TextStyle(
-                  color: Colors.amberAccent[200],
-                  letterSpacing: 2.0,
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.bold
-              ),
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            Row(
-              children: <Widget>[
-                Icon(
-                  Icons.email,
-                  color: Colors.grey[400],
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Text(
-                  "moayadkhader@outlook.com",
-                  style: TextStyle(
-                    color: Colors.grey[400],
-                    letterSpacing: 1.0
-                  ),
-                )
-              ],
-            )
-          ],
-        ),
+      body: Column(
+        children:quotes.map((quote)=> Text(quote)).toList(),
       ),
     );
   }
 }
+
 
 
 
